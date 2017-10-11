@@ -46,8 +46,6 @@ class GoodsDetailViewController: UIViewController,UITableViewDelegate,UITableVie
         
         goodsDeatailTableView.delegate = self
         goodsDeatailTableView.dataSource = self
-        goodsDeatailTableView.estimatedRowHeight=100
-        goodsDeatailTableView.rowHeight=UITableViewAutomaticDimension
         
     }
     
@@ -60,14 +58,10 @@ class GoodsDetailViewController: UIViewController,UITableViewDelegate,UITableVie
 
     }
     
-   
+   //导航栏左按妞关闭点击事件
     @IBAction func ClickGoodsDetailCloseNavLeftBtnAction(_ sender: UIButton) {
-       
-      
         UIView.animate(withDuration: 1, animations: {
             self.view.frame=CGRect(x:self.view.center.x,y:self.view.center.y,width:0,height:0)
-//            self.parent?.navigationController?.setNavigationBarHidden(false, animated: true)
-//            self.parent?.navigationController?.setNavigationBarHidden(false, animated: true)
             let vc:ViewController = (self.parent as? ViewController)!
             vc.isNavHidden = (self.parent?.navigationController?.isNavigationBarHidden)!
             print(self.parent as Any)
@@ -79,6 +73,7 @@ class GoodsDetailViewController: UIViewController,UITableViewDelegate,UITableVie
         })
     }
     
+    //导航栏右按妞分享点击事件
     @IBAction func ClickGoodsDetailShareNavRightBtnAction(_ sender: UIButton) {
     }
     
@@ -112,12 +107,9 @@ extension GoodsDetailViewController{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return UITableViewAutomaticDimension
-        }else if (indexPath.row == 1){
+       if (indexPath.row == 1){
         return 50
         }else{
-//        return 230
              return UITableViewAutomaticDimension
         }
     }

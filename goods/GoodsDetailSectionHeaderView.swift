@@ -33,6 +33,7 @@ class GoodsDetailSectionHeaderView: UIView {
     }
  
 
+    //价格富文本设置样式
     func _initPriceLabel()  {
 
         //定义富文本即有格式的字符串

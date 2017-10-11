@@ -108,7 +108,7 @@ extension GoodsDetailViewController{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        if (indexPath.row == 1){
-        return 50
+        return 55
         }else{
              return UITableViewAutomaticDimension
         }

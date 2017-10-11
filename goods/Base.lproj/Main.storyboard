@@ -254,7 +254,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="外卖评价">
                                                             <attributes>
-                                                                <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
+                                                                <font key="NSFont" size="16" name=".PingFangSC-Regular"/>
                                                             </attributes>
                                                         </fragment>
                                                         <fragment content="(好评度100%)">
@@ -305,7 +305,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017.09.24" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIL-vN-2f0">
-                                                    <rect key="frame" x="310" y="10" width="57" height="28"/>
+                                                    <rect key="frame" x="310" y="10" width="57" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -327,7 +327,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6N-ud-jJp">
-                                                    <rect key="frame" x="72" y="36" width="295" height="20"/>
+                                                    <rect key="frame" x="72" y="37" width="295" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="9aE-bq-8i3"/>
                                                     </constraints>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C188176C1F8F094000DD6B27 /* GoodsCommentListPicCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C188176B1F8F094000DD6B27 /* GoodsCommentListPicCollectCell.swift */; };
 		C192CBE01F8DF1DE0031BF4D /* UINavigationBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C192CBDF1F8DF1DE0031BF4D /* UINavigationBarExtension.swift */; };
 		C19D5CCB1F8DE0E600771089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D5CCA1F8DE0E600771089 /* AppDelegate.swift */; };
 		C19D5CCD1F8DE0E600771089 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D5CCC1F8DE0E600771089 /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C188176B1F8F094000DD6B27 /* GoodsCommentListPicCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsCommentListPicCollectCell.swift; sourceTree = "<group>"; };
 		C192CBDF1F8DF1DE0031BF4D /* UINavigationBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtension.swift; sourceTree = "<group>"; };
 		C19D5CC71F8DE0E600771089 /* goods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C19D5CCA1F8DE0E600771089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				C19D5D001F8DE15200771089 /* GoodsCommentListTableViewCell.swift */,
 				C19D5CFE1F8DE15200771089 /* GoodsCommentTitleTableViewCell.swift */,
 				C19D5CFF1F8DE15200771089 /* GoodsInfoTableViewCell.swift */,
+				C188176B1F8F094000DD6B27 /* GoodsCommentListPicCollectCell.swift */,
 				C19D5CCE1F8DE0E600771089 /* Main.storyboard */,
 				C19D5CFA1F8DE12B00771089 /* GoodsDetailSectionHeaderView.swift */,
 				C19D5D081F8DEAAF00771089 /* GoodsDetailSectionHeaderView.xib */,
@@ -290,6 +293,7 @@
 				C19D5CCB1F8DE0E600771089 /* AppDelegate.swift in Sources */,
 				C19D5D031F8DE15300771089 /* GoodsCommentListTableViewCell.swift in Sources */,
 				C19D5CFB1F8DE12B00771089 /* GoodsDetailSectionHeaderView.swift in Sources */,
+				C188176C1F8F094000DD6B27 /* GoodsCommentListPicCollectCell.swift in Sources */,
 				C192CBE01F8DF1DE0031BF4D /* UINavigationBarExtension.swift in Sources */,
 				C19D5D021F8DE15300771089 /* GoodsInfoTableViewCell.swift in Sources */,
 				C19D5D011F8DE15300771089 /* GoodsCommentTitleTableViewCell.swift in Sources */,

@@ -25,7 +25,10 @@ class GoodsDetailViewController: UIViewController,UITableViewDelegate,UITableVie
 
     @IBOutlet weak var tableviewTopConstrints: NSLayoutConstraint!
     var commentArr:NSArray = NSArray()
-    
+    var picArr:NSArray=NSArray()
+    //dispatch_queue  是队列名称，在调试时辅助
+    let conqueue = DispatchQueue(label: "queuename", attributes: .concurrent)  //并发队列
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,6 +42,8 @@ class GoodsDetailViewController: UIViewController,UITableViewDelegate,UITableVie
     func _loadData(){
         
         commentArr = ["超级好吃炒鸡好吃超级好吃炒鸡好吃超级好吃炒鸡好吃超级好吃炒鸡好吃超级好吃炒鸡好吃超级好吃炒鸡好吃超级好吃炒鸡好吃超级好吃炒鸡好吃超好吃","艾欧玩但是你我那位勤恳情况那位","看saDNKaeqw   家穷围棋文化我囧氰化物","今天的套餐包含大盘鸡、炸鸡、啤酒、全鸡、鸡腿、鸭腿、鸡翅、鸡脖、鸡头、鸡爪、鸡心等今天的套餐包含大盘鸡、炸鸡、啤酒、全鸡、鸡腿、鸭腿、鸡翅、鸡脖、鸡头、鸡爪、鸡心等今天的套餐包含大盘鸡、炸鸡、啤酒、全鸡、鸡腿、鸭腿、鸡翅、鸡脖、鸡头、鸡爪、鸡心等今天的套餐包含大盘鸡、炸鸡、啤酒、全鸡、鸡腿、鸭腿、鸡翅、鸡脖、鸡头、鸡爪、鸡心等器让我很气人  奇热网去"," 驱蚊器无群   为   额   按时大大哥大哥ad舒服点ADGFDGDFQ刚打电话哈哈地方问题问题微微抬头热热而且瑞切尔让他去俄日十年房价开始NSNKnsKN时刻能卡死NSr是"]
+        
+        picArr=[["1-1","1-2"],["2-1","","","",""],["","",""],["","","","","","","",""],["","","","","","","",""]]
     }
     
     //tableView
@@ -109,6 +114,10 @@ extension GoodsDetailViewController{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        if (indexPath.row == 1){
         return 55
+       }else if(indexPath.row == 0){
+        
+        return UITableViewAutomaticDimension
+
         }else{
              return UITableViewAutomaticDimension
         }
@@ -158,9 +167,13 @@ extension GoodsDetailViewController{
             return cell
         }
         else{
+            
             let cell:GoodsCommentListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "GoodsCommentListTableViewCell") as! GoodsCommentListTableViewCell
-            cell.commentContentLabel.text=(commentArr[indexPath.row-2] as! String)
-                return cell
+                cell.commentContentLabel.text="第\(indexPath.row-1)行\(self.commentArr[indexPath.row-2]) )"
+                cell ._loadCommentPicData(picArr: self.picArr[indexPath.row-2] as! NSArray,cellNum: indexPath.row-2)
+                print("cell-------\(indexPath.row-2)")
+            return cell
+
            }
     
 }

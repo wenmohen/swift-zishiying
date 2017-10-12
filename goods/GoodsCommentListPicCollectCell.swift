@@ -11,6 +11,5 @@ import UIKit
 class GoodsCommentListPicCollectCell: UICollectionViewCell {
     
     @IBOutlet weak var commentPicImageView: UIImageView!
-    @IBOutlet weak var ceshiLabel: UILabel!
 
 }

@@ -12,9 +12,6 @@ class GoodsDetailViewController: UIViewController,UITableViewDelegate,UITableVie
     
     @IBOutlet weak var goodsDeatailTableView: UITableView!//整个商品详情的tableView
     
-    @IBOutlet weak var goodsImageView: UIImageView!//上部商品大图片
-    
-    @IBOutlet weak var goodsInfoView: UIView!//商品图片下紧挨着商品名字、月售等信息
     @IBOutlet weak var GoodsNavView: UIView!//自定制导航栏
     
     @IBOutlet weak var goodsDetailNavTitleLabel: UILabel!//自制导航栏标题
@@ -24,15 +21,22 @@ class GoodsDetailViewController: UIViewController,UITableViewDelegate,UITableVie
     @IBOutlet weak var goodsDetailNavTopConstraint: NSLayoutConstraint!//导航栏距离顶部高度
 
     @IBOutlet weak var tableviewTopConstrints: NSLayoutConstraint!
+    
+    let imageHeight:CGFloat =   768 / (1200/IPhone_SCREEN_WIDTH) // 768 * 1200  * 375
+    var bgImageV:UIImageView = UIImageView()
+    var origialFrame:CGRect = CGRect()
+    
+    let goodsPicImageView=UIImageView()
+    let goodsNameLabel=UILabel()
+    let goodsMonthSalesLabel = UILabel()
     var commentArr:NSArray = NSArray()
     var picArr:NSArray=NSArray()
-    //dispatch_queue  是队列名称，在调试时辅助
-    let conqueue = DispatchQueue(label: "queuename", attributes: .concurrent)  //并发队列
    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+       
         _loadData()
         _initNav()
         _initTableView()
@@ -49,14 +53,43 @@ class GoodsDetailViewController: UIViewController,UITableViewDelegate,UITableVie
     //tableView
     func _initTableView() {
         
+        
+        //顶部商品大图、名称、月售
+        goodsPicImageView.frame = CGRect(x: 0, y: 0, width: IPhone_SCREEN_WIDTH, height: imageHeight)
+        goodsPicImageView.image = #imageLiteral(resourceName: "user_table_header_background")
+        bgImageV = goodsPicImageView
+        origialFrame = goodsPicImageView.frame
+        view.addSubview(goodsPicImageView)
+        view.bringSubview(toFront: GoodsNavView)
+
+        goodsNameLabel.frame = CGRect(x:12,y:goodsPicImageView.frame.maxY,width:IPhone_SCREEN_WIDTH-24,height:35)
+        goodsNameLabel.text="农家小炒肉"
+        goodsNameLabel.font=UIFont.boldSystemFont(ofSize: 18)
+        view.addSubview(goodsNameLabel)
+
+        goodsMonthSalesLabel.frame = CGRect(x:goodsNameLabel.frame.minX,y:goodsNameLabel.frame.maxY,width:IPhone_SCREEN_WIDTH-24,height:20)
+        goodsMonthSalesLabel.text="月售 223"
+        goodsMonthSalesLabel.textColor=UIColor(red: 153/225, green: 153/225, blue: 153/225, alpha: 1)
+        goodsMonthSalesLabel.font=UIFont.boldSystemFont(ofSize: 12)
+        view.addSubview(goodsMonthSalesLabel)
+        
+        let headView = UIView(frame: CGRect(x: 0, y: 0, width: IPhone_SCREEN_WIDTH, height: goodsMonthSalesLabel.frame.maxY - CGFloat(IPhone_StatusBarHeight)))
+        headView.backgroundColor = UIColor.clear
+        goodsDeatailTableView.tableHeaderView = headView
+        
+        
+        
         goodsDeatailTableView.delegate = self
         goodsDeatailTableView.dataSource = self
+        
+       
+        
         
     }
     
     //加载导航栏
     func _initNav(){
-        changeNavigationBar(barTitle: nil, colorAlpha: 0)
+        changeNavigationBar(barTitle: nil, colorAlpha: 1)
         GoodsDetailHeightConstraint.constant=CGFloat(IPhone_NavHeight)
         goodsDetailNavTopConstraint.constant = CGFloat(44-IPhone_NavHeight)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -114,11 +147,7 @@ extension GoodsDetailViewController{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        if (indexPath.row == 1){
         return 55
-       }else if(indexPath.row == 0){
-        
-        return UITableViewAutomaticDimension
-
-        }else{
+       }else{
              return UITableViewAutomaticDimension
         }
     }
@@ -170,8 +199,7 @@ extension GoodsDetailViewController{
             
             let cell:GoodsCommentListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "GoodsCommentListTableViewCell") as! GoodsCommentListTableViewCell
                 cell.commentContentLabel.text="第\(indexPath.row-1)行\(self.commentArr[indexPath.row-2]) )"
-                cell ._loadCommentPicData(picArr: self.picArr[indexPath.row-2] as! NSArray,cellNum: indexPath.row-2)
-                print("cell-------\(indexPath.row-2)")
+                cell ._loadCommentPicData(picArr: self.picArr[indexPath.row-2] as! NSArray)
             return cell
 
            }
@@ -183,15 +211,29 @@ extension GoodsDetailViewController{
 //MARK:>>>>>>>  UIScrollViewDelegate
 extension GoodsDetailViewController:UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let y = scrollView.contentOffset.y
-
-        if y >= CGFloat(IPhone_NavHeight)  {
+        let y_offset = scrollView.contentOffset.y
+        if y_offset >= imageHeight  {
             tableviewTopConstrints.constant=CGFloat(IPhone_NavHeight)-CGFloat(IPhone_StatusBarHeight)
             changeNavigationBar(barTitle: "商品详情", colorAlpha: 1)
         }else{
             tableviewTopConstrints.constant=0
-            changeNavigationBar(barTitle: nil, colorAlpha: y/CGFloat(IPhone_NavHeight))
+            changeNavigationBar(barTitle: nil, colorAlpha: y_offset/imageHeight)
         }
+
+        if y_offset > 0 {
+            bgImageV.frame.origin.y = origialFrame.origin.y - y_offset
+            goodsNameLabel.frame.origin.y = bgImageV.frame.maxY
+            goodsMonthSalesLabel.frame.origin.y = goodsNameLabel.frame.maxY
+        }else{
+            let height = self.origialFrame.size.height - y_offset
+            let width = height/768*1200// 有高度 算出 宽
+            let x = origialFrame.origin.x - (width-origialFrame.size.width)/2
+            let frame = CGRect(x: x, y: 0, width: width, height: height)
+            bgImageV.frame = frame
+            goodsNameLabel.frame.origin.y = bgImageV.frame.maxY
+            goodsMonthSalesLabel.frame.origin.y = goodsNameLabel.frame.maxY
+        }
+        print(origialFrame.size.height)
     }
 
     

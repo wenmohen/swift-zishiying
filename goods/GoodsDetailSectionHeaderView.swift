@@ -45,7 +45,7 @@ class GoodsDetailSectionHeaderView: UIView {
         //原价 给价格加上中划线
         let oldPriceStr =  "￥24.9"
         let oldPriceString: NSMutableAttributedString = NSMutableAttributedString(string: oldPriceStr, attributes: [NSAttributedStringKey.foregroundColor : UIColor.lightGray, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12.0)])
-           oldPriceString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: NSNumber(value: 1), range: NSMakeRange(1, oldPriceStr.count-1))
+           oldPriceString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: NSNumber(value: 1), range: NSMakeRange(0, oldPriceStr.count))
         
         attributedStrM.append(currentPriceString)
         attributedStrM.append(oldPriceString)

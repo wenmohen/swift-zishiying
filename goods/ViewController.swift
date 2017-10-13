@@ -29,34 +29,25 @@ class ViewController: UIViewController {
 
     }
 
+    @IBOutlet weak var imv: UIImageView!
     @IBOutlet weak var shopCartView: UIView!
     @IBAction func ClickEnterGoodsDetailAction(_ sender: UIButton) {
-        //MARK:前往菜品詳情
+//        //MARK:前往菜品詳情
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let goodsDetailVC = storyboard.instantiateViewController(withIdentifier: "GoodsDetailViewControllerID") as! GoodsDetailViewController
         self.addChildViewController(goodsDetailVC)
         self.view.addSubview(goodsDetailVC.view)
-        goodsDetailVC.view.frame=CGRect(x:0,y:0,width:IPhone_SCREEN_WIDTH,height:0)
         self.view.bringSubview(toFront: shopCartView)
-//        UIView.animate(withDuration: 2, animations: {
-//        goodsDetailVC.view.frame=CGRect(x:0,y:0,width:IPhone_SCREEN_WIDTH,height:IPhone_SCREEN_HEIGHT-CGFloat(IPhone_TabbarSafeBottomMargin)-44)
-//            self.navigationController?.setNavigationBarHidden(true, animated: true)
-//        })
-
+        goodsDetailVC.view.frame=CGRect(x:0,y:0,width:IPhone_SCREEN_WIDTH,height:IPhone_SCREEN_HEIGHT-CGFloat(IPhone_TabbarSafeBottomMargin)-44)
         
-        let anim = CABasicAnimation(keyPath: "transform.rotation")
-        anim.toValue = 1 * M_PI
-        anim.duration = 1
-        anim.repeatCount = MAXFLOAT
-        anim.isRemovedOnCompletion = true
-        goodsDetailVC.view.layer.add(anim, forKey: nil)
-        goodsDetailVC.view.layer.removeAllAnimations()
-        UIView.animate(withDuration: 0.2) {
-//            goodsDetailVC.view.transform = goodsDetailVC.view.transform.rotated(by: CGFloat(M_PI))
-            goodsDetailVC.view.frame=CGRect(x:0,y:0,width:IPhone_SCREEN_WIDTH,height:IPhone_SCREEN_HEIGHT-CGFloat(IPhone_TabbarSafeBottomMargin)-44)
-//            self.navigationController?.setNavigationBarHidden(true, animated: true)
-        }
+//        let datas : [String] = ["fade","moveIn","push","reveal","cube", "suckEffect", "rippleEffect", "pageCurl", "pageUnCurl", "oglFlip", "cameraIrisHollowOpen",  "cameraIrisHollowClose", "spewEffect","genieEffect","unGenieEffect","twist","tubey","swirl","charminUltra", "zoomyIn", "zoomyOut", "oglApplicationSuspend"]
         
+//        let derection : [String] = [kCATransitionFromRight,kCATransitionFromLeft,kCATransitionFromTop,kCATransitionFromBottom]
+        
+//        let derectionStr = derection[0]
+        let transitionAni = Animate.transitionAnimationWith(duration: 0.75, type: "rippleEffect", subtype: kCATransitionFromRight, startProgress: 0, endProgress: 1)
+        self.view.layer.add(transitionAni, forKey:"transition")
+     
     }
     
    

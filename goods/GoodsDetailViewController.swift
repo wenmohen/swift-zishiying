@@ -60,6 +60,12 @@ class GoodsDetailViewController: UIViewController,UITableViewDelegate,UITableVie
         view.addSubview(goodsPicImageView)
         view.bringSubview(toFront: GoodsNavView)
         
+        //点击商品大图全屏浏览
+        let goodsPicTap = UITapGestureRecognizer.init(target: self, action: #selector(ClickGoodsPicImageViewAction))
+        bgImageV.isUserInteractionEnabled=true
+        bgImageV.addGestureRecognizer(goodsPicTap)
+
+        
         goodsNameLabel.frame = CGRect(x:12,y:goodsPicImageView.frame.maxY,width:IPhone_SCREEN_WIDTH-24,height:35)
         goodsNameLabel.text="农家小炒肉"
         goodsNameLabel.font=UIFont.boldSystemFont(ofSize: 18)
@@ -92,17 +98,19 @@ class GoodsDetailViewController: UIViewController,UITableViewDelegate,UITableVie
     
    //导航栏左按妞关闭点击事件
     @IBAction func ClickGoodsDetailCloseNavLeftBtnAction(_ sender: UIButton) {
-        UIView.animate(withDuration: 1, animations: {
             self.view.frame=CGRect(x:self.view.center.x,y:self.view.center.y,width:0,height:0)
             let vc:ViewController = (self.parent as? ViewController)!
             vc.isNavHidden = (self.parent?.navigationController?.isNavigationBarHidden)!
             print(self.parent as Any)
             self.navigationController?.setNavigationBarHidden(false, animated: true)
 
-            self.removeFromParentViewController()
+        let transitionAni = Animate.transitionAnimationWith(duration: 0.75, type: "suckEffect", subtype: kCATransitionFromTop, startProgress: 0, endProgress: 1)
+        vc.view.layer.add(transitionAni, forKey:"transition")
+        
+        self.removeFromParentViewController()
             self.view.removeFromSuperview()
-
-        })
+        
+     
     }
     
     //导航栏右按妞分享点击事件
@@ -113,7 +121,11 @@ class GoodsDetailViewController: UIViewController,UITableViewDelegate,UITableVie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+   
+    @objc func ClickGoodsPicImageViewAction(tap:UITapGestureRecognizer) {
+        ImageViewerHandler.persentImageViewer(WithDatasoure: [goodsPicImageView.image!], starIndex: 0, viewController: self)
+
+    }
 
    
     

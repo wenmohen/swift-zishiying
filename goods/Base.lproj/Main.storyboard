@@ -60,7 +60,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3n-v3-AYN">
-                                <rect key="frame" x="89" y="255" width="166" height="61"/>
+                                <rect key="frame" x="104" y="482" width="166" height="61"/>
                                 <color key="backgroundColor" red="0.8928866687" green="0.36166497530000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="A5z-0W-Wbm"/>
@@ -70,15 +70,24 @@
                                     <action selector="ClickEnterGoodsDetailAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Hh-Zh-Ub4"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_avatar_default" translatesAutoresizingMaskIntoConstraints="NO" id="7zh-rN-og0">
+                                <rect key="frame" x="27" y="109" width="332" height="234"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="234" id="Pyb-TL-qGQ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.54197509320000004" blue="0.3555410483" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yT7-qL-iQr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2CC-jg-ScK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Z3n-v3-AYN" secondAttribute="trailing" constant="120" id="EXK-8W-OBo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Z3n-v3-AYN" secondAttribute="trailing" constant="105" id="EXK-8W-OBo"/>
                             <constraint firstItem="yT7-qL-iQr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="JyB-US-WE5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yT7-qL-iQr" secondAttribute="bottom" id="YdN-Lx-Dza"/>
-                            <constraint firstItem="Z3n-v3-AYN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="191" id="dW9-oC-eE2"/>
-                            <constraint firstItem="Z3n-v3-AYN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="89" id="ow1-lp-pXg"/>
+                            <constraint firstItem="Z3n-v3-AYN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="418" id="dW9-oC-eE2"/>
+                            <constraint firstItem="Z3n-v3-AYN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="104" id="ow1-lp-pXg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7zh-rN-og0" secondAttribute="trailing" constant="16" id="pGh-0S-qtB"/>
+                            <constraint firstItem="7zh-rN-og0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="pf2-Y1-ocu"/>
+                            <constraint firstItem="7zh-rN-og0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="sWB-Q9-t7u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -99,6 +108,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imv" destination="7zh-rN-og0" id="BgV-O3-42T"/>
                         <outlet property="shopCartView" destination="yT7-qL-iQr" id="SJ2-nK-KwM"/>
                     </connections>
                 </viewController>

@@ -23,6 +23,7 @@
 		C19D5D031F8DE15300771089 /* GoodsCommentListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D5D001F8DE15200771089 /* GoodsCommentListTableViewCell.swift */; };
 		C19D5D051F8DE3DA00771089 /* IFHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D5D041F8DE3DA00771089 /* IFHeader.swift */; };
 		C19D5D091F8DEAAF00771089 /* GoodsDetailSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C19D5D081F8DEAAF00771089 /* GoodsDetailSectionHeaderView.xib */; };
+		C1B075071F905AA200A78632 /* PPNumberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B075061F905AA100A78632 /* PPNumberButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		C19D5D001F8DE15200771089 /* GoodsCommentListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsCommentListTableViewCell.swift; sourceTree = "<group>"; };
 		C19D5D041F8DE3DA00771089 /* IFHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IFHeader.swift; sourceTree = "<group>"; };
 		C19D5D081F8DEAAF00771089 /* GoodsDetailSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsDetailSectionHeaderView.xib; sourceTree = "<group>"; };
+		C1B075061F905AA100A78632 /* PPNumberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPNumberButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				C19D5D041F8DE3DA00771089 /* IFHeader.swift */,
+				C1B075061F905AA100A78632 /* PPNumberButton.swift */,
 				C19D5CCA1F8DE0E600771089 /* AppDelegate.swift */,
 				C19D5CCC1F8DE0E600771089 /* ViewController.swift */,
 				C192CBDF1F8DF1DE0031BF4D /* UINavigationBarExtension.swift */,
@@ -289,6 +292,7 @@
 			files = (
 				C19D5CFD1F8DE13C00771089 /* GoodsDetailViewController.swift in Sources */,
 				C19D5D051F8DE3DA00771089 /* IFHeader.swift in Sources */,
+				C1B075071F905AA200A78632 /* PPNumberButton.swift in Sources */,
 				C19D5CCD1F8DE0E600771089 /* ViewController.swift in Sources */,
 				C19D5CCB1F8DE0E600771089 /* AppDelegate.swift in Sources */,
 				C19D5D031F8DE15300771089 /* GoodsCommentListTableViewCell.swift in Sources */,

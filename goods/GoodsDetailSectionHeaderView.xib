@@ -15,80 +15,74 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="￥0.99 ￥6.9" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5T5-KY-FV0">
-                    <rect key="frame" x="7" y="8" width="158" height="22"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥0.99 ￥6.9" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5T5-KY-FV0">
+                    <rect key="frame" x="12" y="0.0" width="186" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="BQP-Rh-FCY"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="18"/>
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wt-qT-USu">
-                    <rect key="frame" x="12" y="32" width="112" height="18"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wt-qT-USu">
+                    <rect key="frame" x="12" y="35" width="186" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <state key="normal" title="1.43折 限1份">
+                    <state key="normal" title=" 1.43折 限1份" image="tag">
                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ua8-je-bTu">
-                    <rect key="frame" x="249" y="8" width="116" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0T-13-K7M" customClass="PPNumberButton" customModule="goods" customModuleProvider="target">
+                    <rect key="frame" x="237" y="8" width="122" height="34"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLk-xr-mya">
-                            <rect key="frame" x="0.0" y="0.0" width="116" height="34"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" red="0.2466342936" green="0.5063957254" blue="0.40265355130000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bkw-Oz-GIh">
+                            <rect key="frame" x="0.0" y="0.0" width="122" height="34"/>
+                            <color key="backgroundColor" red="0.2470588235" green="0.50588235290000005" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <state key="normal" title="加入购物车">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="5"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4N-Vx-ICb">
-                            <rect key="frame" x="0.0" y="0.0" width="116" height="37"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        </imageView>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLo-Dc-RoX">
-                            <rect key="frame" x="0.0" y="2" width="30" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="--">
-                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fd-Rh-ETX">
-                            <rect key="frame" x="31" y="0.0" width="54" height="38"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itn-7M-DmB">
-                            <rect key="frame" x="84" y="2" width="30" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.2466342936" green="0.5063957254" blue="0.40265355130000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="+">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
+                            <connections>
+                                <action selector="ClickAddShopCartButtonAction:" destination="4sd-gb-LgN" eventType="touchUpInside" id="SQy-iY-OoS"/>
+                            </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Bkw-Oz-GIh" firstAttribute="leading" secondItem="n0T-13-K7M" secondAttribute="leading" id="4uI-2h-03V"/>
+                        <constraint firstAttribute="bottom" secondItem="Bkw-Oz-GIh" secondAttribute="bottom" id="Cpj-vf-qID"/>
+                        <constraint firstItem="Bkw-Oz-GIh" firstAttribute="top" secondItem="n0T-13-K7M" secondAttribute="top" id="IqD-tx-EBc"/>
+                        <constraint firstAttribute="trailing" secondItem="Bkw-Oz-GIh" secondAttribute="trailing" id="JS0-Kb-6yG"/>
+                        <constraint firstAttribute="width" constant="122" id="qoP-Mc-0c3"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="decreaseHide" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="n0T-13-K7M" firstAttribute="top" secondItem="By8-y3-leV" secondAttribute="top" constant="8" id="5fa-5o-eaV"/>
+                <constraint firstItem="7Wt-qT-USu" firstAttribute="trailing" secondItem="5T5-KY-FV0" secondAttribute="trailing" id="BW1-z1-A2q"/>
+                <constraint firstItem="7Wt-qT-USu" firstAttribute="leading" secondItem="By8-y3-leV" secondAttribute="leading" constant="12" id="EeX-V7-ddr"/>
+                <constraint firstItem="7Wt-qT-USu" firstAttribute="top" secondItem="5T5-KY-FV0" secondAttribute="bottom" id="Kxl-KM-rLR"/>
+                <constraint firstItem="5T5-KY-FV0" firstAttribute="leading" secondItem="By8-y3-leV" secondAttribute="leading" constant="12" id="S0A-wE-Vc9"/>
+                <constraint firstItem="7Wt-qT-USu" firstAttribute="bottom" secondItem="By8-y3-leV" secondAttribute="bottom" id="Wxf-JR-WlY"/>
+                <constraint firstItem="5T5-KY-FV0" firstAttribute="top" secondItem="By8-y3-leV" secondAttribute="top" id="e8h-dJ-5lS"/>
+                <constraint firstItem="By8-y3-leV" firstAttribute="trailing" secondItem="n0T-13-K7M" secondAttribute="trailing" constant="16" id="eQx-aj-aTt"/>
+                <constraint firstItem="n0T-13-K7M" firstAttribute="leading" secondItem="5T5-KY-FV0" secondAttribute="trailing" constant="39" id="kLE-tS-YeH"/>
+                <constraint firstItem="By8-y3-leV" firstAttribute="bottom" secondItem="n0T-13-K7M" secondAttribute="bottom" constant="8" id="tRQ-rv-DCd"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="By8-y3-leV"/>
             <connections>
-                <outlet property="addButton" destination="Itn-7M-DmB" id="tDb-nF-3Ok"/>
-                <outlet property="addShopCartButton" destination="fLk-xr-mya" id="1f4-xt-asW"/>
-                <outlet property="buyNumLabel" destination="4Fd-Rh-ETX" id="HNR-Sg-CId"/>
+                <outlet property="GoodsNumberButton" destination="n0T-13-K7M" id="wax-1x-ZHU"/>
+                <outlet property="addShopCartButton" destination="Bkw-Oz-GIh" id="Ltk-pf-0Q8"/>
                 <outlet property="discountButton" destination="7Wt-qT-USu" id="2Cq-Qf-cd3"/>
                 <outlet property="goodsPriceLabel" destination="5T5-KY-FV0" id="wjA-gn-r8G"/>
-                <outlet property="subtractButton" destination="xLo-Dc-RoX" id="YC3-bM-1HR"/>
             </connections>
             <point key="canvasLocation" x="61.5" y="54"/>
         </view>
     </objects>
+    <resources>
+        <image name="tag" width="10" height="10"/>
+    </resources>
 </document>

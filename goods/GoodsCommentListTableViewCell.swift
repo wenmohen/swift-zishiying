@@ -19,9 +19,13 @@ class GoodsCommentListTableViewCell: UITableViewCell,UICollectionViewDelegate,UI
     
     @IBOutlet weak var commentPicCollecViewHeightConstraint: NSLayoutConstraint!
     
-    var dataPicArr :Array<Any> = []
+    var dataPicArr :Array<Any> = []  //图片数组
+
+    var collectionViewDataSource:[String]?
     
-    var CellNum:Int = 0
+    let cellNumOfEachLine:Int = 3  //每一行显示的图片数量
+    
+    var tapCell:((_ images:[UIImage],_ index:Int) -> ())?//评论图片点击事件
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,31 +33,32 @@ class GoodsCommentListTableViewCell: UITableViewCell,UICollectionViewDelegate,UI
     }
 
     
+    
+    //评论数
+    func _loadCommentPicData(picArr:NSArray) {
+        dataPicArr = picArr as! [Any]
+        collectionViewDataSource = picArr as? [String]
+        _initCollectionViewUI()
+        commentPicCollectionView.reloadData()//刷新页面数据，不写图片加载会出现混乱
+    }
+    
     //设置collectionView
     func _initCollectionViewUI(){
+        
         commentPicCollectionView.delegate=self
         commentPicCollectionView.dataSource=self
         commentPicCollectionViewFlowLayout.minimumLineSpacing=8
         commentPicCollectionViewFlowLayout.minimumInteritemSpacing=10
         commentPicCollectionView.showsHorizontalScrollIndicator=false
         commentPicCollectionView.showsVerticalScrollIndicator=false
+    commentPicCollectionViewFlowLayout.itemSize=CGSize(width:commentPicCollectionView.frame.width/CGFloat(cellNumOfEachLine)-10,height:commentPicCollectionView.frame.width/CGFloat(cellNumOfEachLine)-10)
         
-        commentPicCollectionView.isScrollEnabled = false
-    commentPicCollectionViewFlowLayout.itemSize=CGSize(width:commentPicCollectionView.frame.width/3-10,height:commentPicCollectionView.frame.width/3-10)
-        var Num:Int = dataPicArr.count/3
-       
-        Num =  dataPicArr.count % 3 > 0 ? Num+1 :Num
-        commentPicCollecViewHeightConstraint.constant =  CGFloat(Num) * commentPicCollectionViewFlowLayout.itemSize.height + commentPicCollectionViewFlowLayout.minimumLineSpacing
-      
-        
+        //计算图片部分的CollectionView的高度
+        var Num:Int = dataPicArr.count/cellNumOfEachLine
+        Num =  dataPicArr.count % cellNumOfEachLine > 0 ? Num+1 :Num
+        commentPicCollecViewHeightConstraint.constant =  CGFloat(Num) * commentPicCollectionViewFlowLayout.itemSize.height + commentPicCollectionViewFlowLayout.minimumLineSpacing*CGFloat(Num-1)+10
     }
-    //评论数
-    func _loadCommentPicData(picArr:NSArray,cellNum:Int) {
-        dataPicArr = picArr as! Array<Any>
-        CellNum = cellNum
-        _initCollectionViewUI()
-        commentPicCollectionView.reloadData()
-    }
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -71,14 +76,29 @@ extension  GoodsCommentListTableViewCell{
         return dataPicArr.count
     }
 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:GoodsCommentListPicCollectCell = collectionView.dequeueReusableCell(withReuseIdentifier: "GoodsCommentListPicCollectCellID", for: indexPath) as! GoodsCommentListPicCollectCell
-         cell.ceshiLabel.text="\(CellNum+1)---\(indexPath.row+1)"
         return cell
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        guard let images = self.getCollectionViewImages() else { return }
+        tapCell?(images,indexPath.item)
+    }
 }
+
+extension GoodsCommentListTableViewCell{
+    func getCollectionViewImages() -> [UIImage]? {
+        var result = [UIImage]()
+        let itemsNumber = commentPicCollectionView.numberOfItems(inSection: 0)
+        guard let dataSource = collectionViewDataSource, itemsNumber > 0, itemsNumber == dataSource.count else { return nil }
+        for item in 0...itemsNumber - 1 {
+            guard let cell = commentPicCollectionView.cellForItem(at: IndexPath.init(item: item, section: 0)) as? GoodsCommentListPicCollectCell, let image = cell.commentPicImageView.image else { continue }
+            result.append(image)
+        }
+        return result.count > 0 ? result : nil
+    }
+}
+

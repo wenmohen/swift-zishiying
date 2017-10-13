@@ -157,34 +157,18 @@ extension GoodsDetailViewController{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 65
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headView = UIView()
+        var headView = UIView()
         if section == 0 {
-            headView.frame=CGRect(x:0,y:0,width:tableView.frame.width/2,height:50)
-            headView.backgroundColor=UIColor.white
-
-            
             let goodsSectionView = Bundle.main.loadNibNamed("GoodsDetailSectionHeaderView", owner: nil, options: nil)?.first as? GoodsDetailSectionHeaderView
-
-            goodsSectionView?.frame = headView.frame
-            goodsSectionView?.center = headView.center
-
-            if goodsSectionView != nil {
-                headView.addSubview(goodsSectionView!)
-            }
-            
-            //底部分割线
-            let lineView = UIView()
-            lineView.frame=CGRect(x:0,y:headView.frame.height-0.5,width:IPhone_SCREEN_WIDTH,height:0.5)
-            lineView.backgroundColor=UIColor.lightText
-            headView.addSubview(lineView)
-            
+            headView = goodsSectionView!
         }
         return headView
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {

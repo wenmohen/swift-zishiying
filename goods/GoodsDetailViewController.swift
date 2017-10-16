@@ -124,7 +124,6 @@ class GoodsDetailViewController: UIViewController,UITableViewDelegate,UITableVie
    
     @objc func ClickGoodsPicImageViewAction(tap:UITapGestureRecognizer) {
         ImageViewerHandler.persentImageViewer(WithDatasoure: [goodsPicImageView.image!], starIndex: 0, viewController: self)
-
     }
 
    
@@ -225,7 +224,7 @@ extension GoodsDetailViewController:UIScrollViewDelegate{
             goodsNameLabel.frame.origin.y = bgImageV.frame.maxY
             goodsMonthSalesLabel.frame.origin.y = goodsNameLabel.frame.maxY
         }
-        print(origialFrame.size.height)
+//        print(origialFrame.size.height)
     }
 
     
